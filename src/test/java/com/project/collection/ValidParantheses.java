@@ -51,27 +51,35 @@ public class ValidParantheses {
 
         return stack.isEmpty() && queue.isEmpty();
     }
-    @DisplayName("String s = [(]), expected false")
+    @DisplayName("String str = [(]), expected false")
     @Test
     void test() {
         String s = "[(])";
-        System.out.println("validParantheses(s) = " + validParantheses(s));
+        System.out.println("[(]) = " + validParantheses(s));
 
     }
 
-    @DisplayName("String s = ([{}]), expected true")
+    @DisplayName("String str = ([{}]), expected true")
     @Test
     void test2() {
         String s = "([{}])";
-        System.out.println("validParantheses(s) = " + validParantheses(s));
+        System.out.println("([{}]) = " + validParantheses(s));
 
     }
 
-    @DisplayName("String s = [], expected true")
+    @DisplayName("String str = [], expected true")
     @Test
     void test3() {
         String s = "[]";
-        System.out.println("validParantheses(s) = " + validParantheses(s));
+        System.out.println("[] = " + validParantheses(s));
+
+    }
+
+    @DisplayName("String str = ()[]{}, expected true")
+    @Test
+    void test4() {
+        String s = "()[]{}";
+        System.out.println("()[]{} = " + validParantheses(s));
 
     }
 }
