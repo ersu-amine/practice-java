@@ -61,31 +61,3 @@ public class RemoveDuplicateArrayList {
     }
 
 }
-
-/*
-(We create HarshSet)
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-public class UniqueValuesFromArrayList {
-public static void main(String[] args) {
-// Example ArrayList
-List<Integer> arrayList = new ArrayList<>();
-arrayList.add(1);
-arrayList.add(2);
-arrayList.add(3);
-arrayList.add(2); // Adding a duplicate
-arrayList.add(4);
-arrayList.add(1); // Adding a duplicate
-// Print the original ArrayList
-System.out.println("Original ArrayList: " + arrayList);
-// Create a Set to store unique elements
-Set<Integer> uniqueSet = new HashSet<>(arrayList);
-// Print the unique elements using Set
-System.out.println("Unique elements from ArrayList using Set: " + uniqueSet);
-// If you need the unique elements back as an ArrayList
-List<Integer> uniqueList = new ArrayList<>(uniqueSet);
-System.out.println("Unique elements as ArrayList: " + uniqueList);
-
- */
