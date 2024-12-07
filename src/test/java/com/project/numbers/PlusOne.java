@@ -25,10 +25,13 @@ public class PlusOne {
         int[] digits = new int[]{1, 2, 3, 4};
         int[] digits2 = new int[]{9,8,7,6,5,4,3,2,1,0};
 
-        int[] ints = plusOne(digits2);
+        int[] integers = plusOne(digits2);
 
-        System.out.println("Arrays.toString(ints) = " + Arrays.toString(ints));
+        System.out.println("Arrays.toString(integers) = " + Arrays.toString(integers));
 
+        integers = plusOne(digits);
+
+        System.out.println("Arrays.toString(integers) = " + Arrays.toString(integers));
 
     }
 
@@ -53,10 +56,10 @@ public class PlusOne {
     }
 
     public static String concatDigits(int[] digits) {
-        String result = "";
+        StringBuilder result = new StringBuilder();
         for (int digit : digits) {
-            result += digit;
+            result.append(digit);
         }
-        return result;
+        return result.toString();
     }
 }
