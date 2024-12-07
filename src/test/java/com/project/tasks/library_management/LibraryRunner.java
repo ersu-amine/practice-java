@@ -5,11 +5,20 @@ import java.util.Scanner;
 public class LibraryRunner {
     public static void main(String[] args) {
         System.out.println("Welcome to the Library Management System");
-        int choice =0;
+        System.out.println("   1. Add Book\n" +
+                "   2. Borrow Book\n" +
+                "   3. Return Book\n" +
+                "   4. View Inventory\n" +
+                "   5. Exit\n");
+        int choice;
         Scanner scan = new Scanner(System.in);
-        while (choice!=5){
+        do{
+            System.out.println("   Enter your choice: ");
             choice = scan.nextInt();
 
-        }
+        } while (choice!=5);
+
+
+
     }
 }
