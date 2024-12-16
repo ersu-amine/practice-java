@@ -1,5 +1,7 @@
 package com.project.tasks.library_management;
 
+import org.junit.jupiter.api.Test;
+
 public class Book {
     /*
     Book: Represents a book with attributes:
@@ -22,5 +24,10 @@ isAvailable (boolean)
                 ", isbn='" + isbn + '\'' +
                 ", isAvailable=" + isAvailable +
                 '}';
+    }
+
+    @Test
+    void name() {
+
     }
 }
