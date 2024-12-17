@@ -27,23 +27,40 @@ public class TopKFrequentElement {
      */
     @Test
     void test() {
-
-
+        //TODO make int []
+        Integer[] array = {1,2,2,2,3,3,2,6,6,5,5,5,5,2};
+        frequentElements(array, 1);
     }
-    public int[] frequentElements(Integer[] nums, int k){
-        int[] elements = new int[k];
-        List<Integer> list = Arrays.asList(nums);
-        Collections.sort(list); //sort and remove duplicates?
 
+    public int[] frequentElements(Integer[] nums, int k){//uses Integer [] instead of int[]
+        int[] elements = new int[k];
+        //TODO make int[] into Integer[], to be used by Arrays class to make set
+        //Integer [] intArray = nums;
+
+        //used for getting frequency
+        List<Integer> list = new ArrayList<>(Arrays.asList(nums));
 
         //to store unique numbers
         Set<Integer> set = new HashSet<>(Arrays.asList(nums));
-        Map<Integer,Integer> map = new HashMap<>();
+        //tree map has natural order by the key, most frequent will be the first
+        Map<Integer,Integer> map = new TreeMap<>();
+
         for (Integer i : set) {
-            map.put(i, Collections.frequency(list,i));
+            //put frequency as key and number as the value
+            map.put(Collections.frequency(list,i), i);
+            }
+
+        System.out.println("map = " + map);
+        System.out.println("map.keySet() = " + map.keySet());
+        List<Integer> frequency = new ArrayList<>(map.keySet());
+
+        int counter =0;
+
+        for (int i = 0; i < k ; i++) {
+            elements[i] = map.get(frequency.get(frequency.size()-1-i));
         }
 
-        //TODO implement finding most frequent
+        System.out.println("Arrays.toString(elements) = " + Arrays.toString(elements));
         return elements;
     }
 }
