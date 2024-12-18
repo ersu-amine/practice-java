@@ -3,45 +3,53 @@ package com.project.string;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class GroupAnagram {
 
-    @DisplayName("Group anagrams with for loop")
     @Test
-    void groupAnagram() {
-        String [] strs = {"act","pots","tops","cat","stop","hat"};
+    void test() {
+        String[] strs = {"act", "pots", "tops", "cat", "stop", "hat"};
 
-        List<String> results = new ArrayList<>();
-        for (int i = 0; i < strs.length; i++) {
-            String result = strs[i] +"-";
-            boolean isAnagram = false;
-            for (int j = 1; j < strs.length; j++) {
+        String[] strse = {"hat"};
 
-                if(strs[i].length()==strs[j].length() && !strs[i].equals(strs[j])){
-                    if(isAnagram(strs[i],strs[j])){
-                        result += strs[j] + "+";
-                        isAnagram = true;
-                    }
-                }
+        groupAnagram(strs);
 
-            }
-            result += "-";
-            results.add(result);
-            System.out.println("result = " + result);
-            System.out.println("results = " + results);
-
-        }
-
-
+        groupAnagram(strse);
     }
 
-    public boolean isAnagram(String str1, String str2){
+
+    public static void groupAnagram(String[] strs) {
+        //TODO implement 2D arrays
+        Set<Set<String>> groups = new HashSet<>();
+
+        for (int i = 0; i < strs.length; i++) {
+            //set to store anagrams, inner set
+            Set<String> results = new HashSet<>();
+
+            for (int j = 0; j < strs.length; j++) {
+
+                //anagrams have same length and not exactly same sequence
+                if (strs[i].length() == strs[j].length() && !strs[i].equals(strs[j])) {
+                    //add to inner set if anagram
+                    if (isAnagram(strs[i], strs[j])) {
+                        results.add(strs[j]);
+                    }
+                }
+            }
+            results.add(strs[i]);
+
+            groups.add(results);
+        }
+
+        System.out.println("groups = " + groups);
+    }
+
+    public static boolean isAnagram(String str1, String str2) {
         String[] strArray = str1.split("");
         String[] strArray2 = str2.split("");
 
+        //sorted arrays  should have same letters in same index
         Arrays.sort(strArray);
         Arrays.sort(strArray2);
 
