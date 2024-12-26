@@ -14,7 +14,13 @@ isAvailable (boolean)
     public String title;
     public String author;
     public String isbn;
-    public boolean isAvailable;
+    public boolean isAvailable =true;
+
+    public Book(String title, String author, String isbn) {
+        this.title = title;
+        this.author = author;
+        this.isbn = isbn;
+    }
 
     @Override
     public String toString() {
@@ -26,8 +32,19 @@ isAvailable (boolean)
                 '}';
     }
 
-    @Test
-    void name() {
+    public String getIsbn() {
+        return isbn;
+    }
 
+    public String getAuthor() {
+        return author;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setAvailable(boolean available) {
+        isAvailable = available;
     }
 }
