@@ -52,6 +52,39 @@ public class Library {
     }
 
     public static void viewInventory(){
-        System.out.println(inventory);
+        System.out.println("The inventory: ");
+        for (Book book : inventory) {
+            System.out.println(book.getTitle());
+        }
+    }
+
+    public static List<String> getBookTitles(List<Book> books){
+        List<String> allTitles = new ArrayList<>();
+        for (Book book : books) {
+            allTitles.add(book.getTitle());
+        }
+        return allTitles;
+    }
+
+    public static Book getInventoryBook(String bookTitle){
+        Book book = null;
+        for (Book eachBook : inventory) {
+            if(eachBook.getTitle().equals(bookTitle)){
+                //assign book if it is in the inventory
+                book = eachBook;
+            }
+        }
+        return book;
+    }
+
+    public static Book getBorrowedBook(String bookTitle){
+        Book book = null;
+        for (Book eachBook : borrowedBooks) {
+            if(eachBook.getTitle().equals(bookTitle)){
+                //assign book if it is in the inventory
+                book = eachBook;
+            }
+        }
+        return book;
     }
 }

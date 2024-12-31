@@ -1,8 +1,9 @@
 package com.project.tasks.library_management;
 
+import java.util.List;
 import java.util.Scanner;
 
-public class LibraryRunner {
+public class LibraryRunner extends Library{
     public static void main(String[] args) {
         System.out.println("Welcome to the Library Management System");
         System.out.println("   1. Add Book\n" +
@@ -26,11 +27,31 @@ public class LibraryRunner {
                     String isbn = scan.nextLine();
                     Library.addBook(new Book(title, author, isbn));
                     break;
-                    //TODO borrow book
-//                case 2:
-//                    System.out.println("Please enter the title of the book you want to borrow: ");
-//                    String bookToBorrow = scan.nextLine();
-//                    Library.borrowBook();
+                case 2:
+                    System.out.println("Please enter the title of the book you want to borrow: ");
+                    String bookToBorrow = scan.nextLine();
+                    List<String> allTitles = Library.getBookTitles(Library.inventory);
+                    if(allTitles.contains(bookToBorrow)){
+                        Library.borrowBook(Library.getInventoryBook(bookToBorrow));
+
+                    }else {
+                        System.out.println("The book is not in the inventory. Please try later.");
+                    }
+                    break;
+                case 3:
+                    System.out.println("Please enter the title of the book you want to return: ");
+                    String bookToReturn = scan.nextLine();
+                    List<String> borrowedTitles = Library.getBookTitles(Library.borrowedBooks);
+                    if(borrowedTitles.contains(bookToReturn)){
+                        Library.returnBook(Library.getBorrowedBook(bookToReturn));
+
+                    }else {
+                        System.out.println("The book cannot be returned. Please try again later.");
+                    }
+                    break;
+                case 4:
+                    Library.viewInventory();
+                    break;
             }
 
         } while (choice != 5);
