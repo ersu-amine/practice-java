@@ -38,6 +38,17 @@ public class ReverseInteger {
 
         int num = 123;
         System.out.println(num);
+        int reverse = 0;
+        while (num !=0){
+            //move decimal point to the right by multiplying by 10
+            reverse *=10;
+            //new number put beside former number
+            reverse += num % 10;
+            //update num, move decimal to the left
+            num = num / 10;
+        }
+
+        System.out.println(reverse);
 
     }
     
