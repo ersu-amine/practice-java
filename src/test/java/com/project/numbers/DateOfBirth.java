@@ -12,7 +12,8 @@ public class DateOfBirth {
     public static String dateFormat(String input) {
         String result = "";
         String[] split = input.split("/");
-        //TODO continue
+
+
 
 
         return result;
