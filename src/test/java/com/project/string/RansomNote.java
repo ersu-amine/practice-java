@@ -3,7 +3,10 @@ package com.project.string;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
 public class RansomNote {
     /*
@@ -25,13 +28,22 @@ public class RansomNote {
      */
     public boolean canConstruct(String ransomNote, String magazine) {
 
-        char[] noteArray = ransomNote.toCharArray();
-        char[] magazineCharArray = magazine.toCharArray();
+        boolean result = false;
 
-        //sort to make the order same, so arrays match, or use Collection.containsAll, but requires non-primitive type
-        Arrays.sort(noteArray);
-        Arrays.sort(magazineCharArray);
-        return Arrays.equals(noteArray,magazineCharArray);
+        List<String> noteList = new ArrayList<>(Arrays.asList(ransomNote.split("")));
+
+        List<String> magazineList = new ArrayList<>(Arrays.asList(magazine.split("")));
+
+        for (String character : noteList) {
+            //remove matching characters
+            magazineList.remove(character);
+        }
+        //check if magazine sized has been reduced exactly same size as the ransome note string size
+        if(magazine.length() - magazineList.size() == ransomNote.length()){
+            result = true;
+        }
+
+        return result;
     }
 
     @Test
@@ -52,5 +64,10 @@ public class RansomNote {
     @Test
     void test4() {
         Assertions.assertTrue(canConstruct("baa","aab"));
+    }
+
+    @Test
+    void test5() {
+        Assertions.assertFalse(canConstruct("aa","ab"));
     }
 }
