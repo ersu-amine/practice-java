@@ -20,7 +20,6 @@ public class GroupAnagram {
 
 
     public static void groupAnagram(String[] strs) {
-        //TODO implement 2D arrays
         Set<Set<String>> groups = new HashSet<>();
 
         for (int i = 0; i < strs.length; i++) {
